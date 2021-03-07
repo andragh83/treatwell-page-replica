@@ -1,0 +1,7 @@
+.App {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+Map {
+  z-index: 5 !important;
+}
