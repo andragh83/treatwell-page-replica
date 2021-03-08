@@ -25,12 +25,13 @@ const StickyCollapse = ({
    const [showInputTreatment, setShowInputTreatment] = useState(false)
    const [showlocationDropdown, setShowLocationDropdown] = useState(false);
    const [showDateDropdown, setShowDateDropdown] = useState(false);
-   const [viewportWidth, setViewportWidth] = useState(undefined);
+   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
     
     const handleResize = () => {
         setViewportWidth(window.innerWidth);
-        viewportWidth<420 && toggleMap();
+        console.log('viewport: ', viewportWidth)
+        viewportWidth < 420 && toggleMap();
     }
     
     useEffect(() => {
@@ -71,7 +72,7 @@ const StickyCollapse = ({
                             </div>
                          { viewportWidth < 420 
                               && <div>
-                                    <button style={{outline: 'none', background: 'none', border: 'none', color: 'white'}} onClick={() => {toggleCards(); toggleIListIcon(!listIcon); return !toggleMap()}}>
+                                    <button className={styles.initialInputButton} onClick={() => {toggleCards(); toggleIListIcon(!listIcon); return !toggleMap()}}>
                                         { listIcon ? 
                                             <FontAwesomeIcon icon={faList} size="lg"/>
                                             :
