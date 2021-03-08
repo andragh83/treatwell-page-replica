@@ -16,7 +16,7 @@ const StickyCollapse = ({
         getDesiredDate, 
         desiredTime,
         getDesiredTime,
-        hideMap }) => {
+        toggleMap }) => {
 
    const [showOneInput, setShowOneInput] = useState(true);
    const [showInputTreatment, setShowInputTreatment] = useState(false)
@@ -103,7 +103,7 @@ const StickyCollapse = ({
                 <div className={styles.label}>{"Balayage"}</div>
 
                 <div className={styles.hideMap}>                    
-                    <button onClick={hideMap}>
+                    <button onClick={toggleMap}>
                     <FontAwesomeIcon className={styles.hideMapIcon} icon={faTimes} size="lg"/>
                     Hide Map
                     </button>

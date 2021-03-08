@@ -3,18 +3,22 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import icon from '../../img/logo512.png';
 import styles from './Map.module.css';
 
+
 const MapCard = ({ google }) => {
+    
+
     return <div className={styles.mapWrapper}>
-            <Map
+        <Map
             google={google}
             zoom={14}            
             initialCenter={
-            {
-                lat: 51.507359,
-                lng: -0.136439
-            }
+                {
+                    lat: 51.507359,
+                    lng: -0.136439
+                }
             }
         >
+
             <Marker
                 icon={icon}
                 onClick={console.log('you clicked me!')}

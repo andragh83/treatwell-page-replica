@@ -1,0 +1,10 @@
+.container {
+    min-width: 400px;
+    border: 1px solid lightgray;
+    padding: 20px;
+}
+
+.container button {
+    outline: none;
+    border-radius: 5px;
+}

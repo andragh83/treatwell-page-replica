@@ -2,7 +2,8 @@ import {
     CHANGE_TREATMENT_FIELD,  
     CHANGE_LOCATION_FIELD,
     CHANGE_DATE_FIELD,
-    CHANGE_TIME_FIELD
+    CHANGE_TIME_FIELD,
+    HIDE_MAP_FIELD
         } from './constants.js'
 
 export const setTreatment = (text) => ({
@@ -25,3 +26,7 @@ export const setDesiredTime = (text) => ({
 	payload: text
 })
 
+export const setHideMap = (text) => ({
+	type: HIDE_MAP_FIELD,
+	payload: text
+})
