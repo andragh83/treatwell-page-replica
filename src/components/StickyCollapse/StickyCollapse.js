@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './StickyCollapse.module.css';
 import InputField from './InputField';
 import DropdownInputTreatment from './DropdownInputTreatment';
 import DropdownInputDate from './DropdownInputDate';
 import DropdownInputLocation from './DropdownInputLocation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faTimes, faMapMarkerAlt, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTimes, faMapMarkerAlt, faCalendarAlt, faMapMarkedAlt, faList } from '@fortawesome/free-solid-svg-icons';
 
 const StickyCollapse = ({ 
         treatment, 
@@ -17,12 +17,28 @@ const StickyCollapse = ({
         desiredTime,
         getDesiredStartHour,
         getDesiredEndHour,
-        toggleMap }) => {
+        toggleMap,
+        toggleCards }) => {
 
    const [showOneInput, setShowOneInput] = useState(true);
+   const [listIcon , toggleIListIcon] = useState(true);
    const [showInputTreatment, setShowInputTreatment] = useState(false)
    const [showlocationDropdown, setShowLocationDropdown] = useState(false);
    const [showDateDropdown, setShowDateDropdown] = useState(false);
+   const [viewportWidth, setViewportWidth] = useState(undefined);
+
+    
+    const handleResize = () => {
+        setViewportWidth(window.innerWidth);
+        viewportWidth<420 && toggleMap();
+    }
+    
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, [])
+
  
    const displayDateAndTime = (date, time) => {
        console.log('date in fct is: ', date);
@@ -43,16 +59,29 @@ const StickyCollapse = ({
 
                 <div className={styles.inputsContainer}>
                     {showOneInput ?
-                        <InputField 
-                            icon={faSearch}                            
-                            onClick={() => {setShowOneInput(!showOneInput); setShowOneInput(false)}}
-                            inputMode={"none"}
-                            placeholder={"Search for treatments"}
-                            value={treatment}
-                        />
+                        ( <div className={styles.initialInputContainer}>
+                            <div className={styles.initialInputField}>
+                                <InputField 
+                                    icon={faSearch}                            
+                                    onClick={() => {setShowOneInput(!showOneInput); setShowOneInput(false)}}
+                                    inputMode={"none"}
+                                    placeholder={"Search for treatments"}
+                                    value={treatment}                            
+                                />
+                            </div>
+                         { viewportWidth < 420 
+                              && <div>
+                                    <button style={{outline: 'none', background: 'none', border: 'none', color: 'white'}} onClick={() => {toggleCards(); toggleIListIcon(!listIcon); return !toggleMap()}}>
+                                        { listIcon ? 
+                                            <FontAwesomeIcon icon={faList} size="lg"/>
+                                            :
+                                            <FontAwesomeIcon icon={faMapMarkedAlt} size="lg"/>
+                                            }
+                                    </button>                            
+                                </div> }
+                        </div> )
                         :                        
                         <div>
-
                             <React.Fragment>
                                 <InputField 
                                     icon={faSearch}                                    

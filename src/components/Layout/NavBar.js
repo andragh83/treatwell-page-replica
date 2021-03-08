@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import styles from './NavBar.module.css';
 
 const NavBar = () => (
@@ -19,7 +21,7 @@ const NavBar = () => (
         </ul>
         <ul className={styles.rightLinksSmall}>
             <button className={styles.logIn + ' ' + styles.navLink}>
-                Icon
+                <FontAwesomeIcon icon={faCalendarAlt} size="lg"/>
             </button>
             <button className={styles.navLink}>
                 My Bookings

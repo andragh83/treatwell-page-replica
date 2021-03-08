@@ -4,7 +4,8 @@ import {
     CHANGE_DATE_FIELD,
     CHANGE_START_HOUR_FIELD,
     CHANGE_END_HOUR_FIELD,
-    HIDE_MAP_FIELD
+    HIDE_MAP_FIELD,
+    SHOW_CARDS_FIELD
         } from './constants.js'
 
 const initialState = {
@@ -15,7 +16,8 @@ const initialState = {
         startHour: '08:00',
         endHour: '20:00'
     },
-    hideMap: false
+    hideMap: false,
+    showCards: true
 }
 
 export const searchTreatment = (state=initialState, action={}) => {
@@ -44,6 +46,8 @@ export const searchTreatment = (state=initialState, action={}) => {
             )
         case HIDE_MAP_FIELD:
             return Object.assign({}, state, {hideMap: !state.hideMap})
+        case SHOW_CARDS_FIELD:
+            return Object.assign({}, state, {showCards: !state.showCards})
 		default:
 			return state;
 	}

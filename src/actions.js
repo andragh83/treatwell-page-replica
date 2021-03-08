@@ -4,7 +4,8 @@ import {
     CHANGE_DATE_FIELD,
     CHANGE_START_HOUR_FIELD,
     CHANGE_END_HOUR_FIELD,
-    HIDE_MAP_FIELD
+    HIDE_MAP_FIELD,
+    SHOW_CARDS_FIELD
         } from './constants.js'
 
 export const setTreatment = (text) => ({
@@ -36,3 +37,9 @@ export const setHideMap = (text) => ({
 	type: HIDE_MAP_FIELD,
 	payload: text
 })
+
+export const setShowCards = (text) => ({
+	type: SHOW_CARDS_FIELD,
+	payload: text
+})
+

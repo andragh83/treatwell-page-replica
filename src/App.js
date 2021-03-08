@@ -6,7 +6,7 @@ import StickyCollapse from './components/StickyCollapse/StickyCollapse.js';
 import MapCard from './components/Map/MapCard';
 import Card from './components/Card/Card';
 
-import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setHideMap } from './actions';
+import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setHideMap, setShowCards } from './actions';
 
 const mapStateToProps = state => {
 	return {
@@ -14,7 +14,8 @@ const mapStateToProps = state => {
         location: state.location,
         desiredDate: state.desiredDate,
         desiredTime: state.desiredTime,
-        hideMap: state.hideMap
+        hideMap: state.hideMap,
+        showCards: state.showCards
 	}
 }
 
@@ -25,7 +26,8 @@ const mapDispatchToProps = (dispatch) => {
         getDesiredDate: (event) => dispatch(setDesiredDate(event.target.value)),
         getDesiredStartHour: (event) => dispatch(setDesiredStartHour(event.target.value)),
         getDesiredEndHour: (event) => dispatch(setDesiredEndHour(event.target.value)),
-        toggleMap: () => dispatch(setHideMap())
+        toggleMap: () => dispatch(setHideMap()),
+        toggleCards: () => dispatch(setShowCards()),
 	}
 }
 
@@ -41,7 +43,9 @@ function App(
     getDesiredStartHour,
     getDesiredEndHour,
     hideMap,
-    toggleMap }
+    toggleMap,
+    showCards,
+    toggleCards }
 ) {
 
   console.log('desired treatment: ', treatment);
@@ -65,9 +69,13 @@ function App(
           getDesiredStartHour={getDesiredStartHour} 
           getDesiredEndHour={getDesiredEndHour}
           toggleMap={toggleMap}
+          toggleCards={toggleCards}
         />
         <div className="Content">
-          <Card />
+        
+          {
+            showCards && <Card />
+          }
           {
             !hideMap && <MapCard />
           }

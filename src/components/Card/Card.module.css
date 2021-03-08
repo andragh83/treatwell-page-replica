@@ -1,5 +1,6 @@
 .container {
-    min-width: 400px;
+    min-width: 300px;
+    max-width: 90vw;
     border: 1px solid lightgray;
     padding: 20px;
 }

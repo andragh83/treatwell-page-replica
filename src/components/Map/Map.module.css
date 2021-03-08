@@ -4,3 +4,11 @@
     width: 50vw; 
     height: 50vh;
 }
+
+@media screen and (max-width: 420px) {
+    .mapWrapper {
+        margin: 0px auto;
+        width: 100vw; 
+        height: 50vh;
+    }
+}
