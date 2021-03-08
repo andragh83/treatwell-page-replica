@@ -74,9 +74,9 @@ const StickyCollapse = ({
                               && <div>
                                     <button className={styles.initialInputButton} onClick={() => {toggleCards(); toggleIListIcon(!listIcon); return !toggleMap()}}>
                                         { listIcon ? 
-                                            <FontAwesomeIcon icon={faList} size="lg"/>
-                                            :
                                             <FontAwesomeIcon icon={faMapMarkedAlt} size="lg"/>
+                                            :
+                                            <FontAwesomeIcon icon={faList} size="lg"/>
                                             }
                                     </button>                            
                                 </div> }
