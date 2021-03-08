@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/treatwell-page-replica/static/css/main.5c22a0ca.chunk.css",
-    "main.js": "/treatwell-page-replica/static/js/main.96fdeebc.chunk.js",
-    "main.js.map": "/treatwell-page-replica/static/js/main.96fdeebc.chunk.js.map",
-    "runtime-main.js": "/treatwell-page-replica/static/js/runtime-main.9282aeba.js",
-    "runtime-main.js.map": "/treatwell-page-replica/static/js/runtime-main.9282aeba.js.map",
-    "static/js/2.005d452e.chunk.js": "/treatwell-page-replica/static/js/2.005d452e.chunk.js",
-    "static/js/2.005d452e.chunk.js.map": "/treatwell-page-replica/static/js/2.005d452e.chunk.js.map",
-    "static/js/3.f618d900.chunk.js": "/treatwell-page-replica/static/js/3.f618d900.chunk.js",
-    "static/js/3.f618d900.chunk.js.map": "/treatwell-page-replica/static/js/3.f618d900.chunk.js.map",
+    "main.css": "/treatwell-page-replica/static/css/main.1cf701a1.chunk.css",
+    "main.js": "/treatwell-page-replica/static/js/main.a80a03fe.chunk.js",
+    "main.js.map": "/treatwell-page-replica/static/js/main.a80a03fe.chunk.js.map",
+    "runtime-main.js": "/treatwell-page-replica/static/js/runtime-main.ef8ab97c.js",
+    "runtime-main.js.map": "/treatwell-page-replica/static/js/runtime-main.ef8ab97c.js.map",
+    "static/js/2.f166fe70.chunk.js": "/treatwell-page-replica/static/js/2.f166fe70.chunk.js",
+    "static/js/2.f166fe70.chunk.js.map": "/treatwell-page-replica/static/js/2.f166fe70.chunk.js.map",
+    "static/js/3.90531f14.chunk.js": "/treatwell-page-replica/static/js/3.90531f14.chunk.js",
+    "static/js/3.90531f14.chunk.js.map": "/treatwell-page-replica/static/js/3.90531f14.chunk.js.map",
     "index.html": "/treatwell-page-replica/index.html",
-    "static/css/main.5c22a0ca.chunk.css.map": "/treatwell-page-replica/static/css/main.5c22a0ca.chunk.css.map",
-    "static/js/2.005d452e.chunk.js.LICENSE.txt": "/treatwell-page-replica/static/js/2.005d452e.chunk.js.LICENSE.txt"
+    "static/css/main.1cf701a1.chunk.css.map": "/treatwell-page-replica/static/css/main.1cf701a1.chunk.css.map",
+    "static/js/2.f166fe70.chunk.js.LICENSE.txt": "/treatwell-page-replica/static/js/2.f166fe70.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9282aeba.js",
-    "static/js/2.005d452e.chunk.js",
-    "static/css/main.5c22a0ca.chunk.css",
-    "static/js/main.96fdeebc.chunk.js"
+    "static/js/runtime-main.ef8ab97c.js",
+    "static/js/2.f166fe70.chunk.js",
+    "static/css/main.1cf701a1.chunk.css",
+    "static/js/main.a80a03fe.chunk.js"
   ]
 }
