@@ -136,7 +136,7 @@ const StickyCollapse = ({
                         }                        
                 </div>
 
-                <div className={styles.label}>{"Balayage"}</div>
+                <div className={styles.label}>{treatment}</div>
 
                 <div className={styles.hideMap}>                    
                     <button onClick={toggleMap}>

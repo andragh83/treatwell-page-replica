@@ -9,7 +9,7 @@ import {
         } from './constants.js'
 
 const initialState = {
-    treatment: '',
+    treatment: 'Balayage',
     location: '',
     desiredDate: 'Any date',
     desiredTime: {
