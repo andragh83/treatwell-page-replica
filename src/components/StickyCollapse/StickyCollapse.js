@@ -15,7 +15,8 @@ const StickyCollapse = ({
         desiredDate,        
         getDesiredDate, 
         desiredTime,
-        getDesiredTime,
+        getDesiredStartHour,
+        getDesiredEndHour,
         toggleMap }) => {
 
    const [showOneInput, setShowOneInput] = useState(true);
@@ -23,14 +24,18 @@ const StickyCollapse = ({
    const [showlocationDropdown, setShowLocationDropdown] = useState(false);
    const [showDateDropdown, setShowDateDropdown] = useState(false);
  
-   const displayDate = (date) => {
-    if (Date.parse(date)) {
-        let displayValue = new Date(date);
-        let dd = displayValue.getDate();
-        let mm = displayValue.getMonth()+1;
-        return dd + '/' + mm
-    } else return date;
-    
+   const displayDateAndTime = (date, time) => {
+       console.log('date in fct is: ', date);
+       console.log('time in fct is: ', time);
+
+        let displayDate = '';
+        if (Date.parse(date)) {
+            let displayValue = new Date(date);
+            let dd = displayValue.getDate();
+            let mm = displayValue.getMonth()+1;
+            displayDate = dd + '/' + mm;
+        } else {displayDate = date};
+    return displayDate + ' between ' + time.startHour + ' and ' + time.endHour;
    }
 
    return <div className={styles.container}>
@@ -85,14 +90,15 @@ const StickyCollapse = ({
                                     onClick={() => setShowDateDropdown(!showDateDropdown)}                                                    
                                     inputMode={"none"}
                                     placeholder={"Any Date"}
-                                    value={displayDate(desiredDate)}
+                                    value={displayDateAndTime(desiredDate, desiredTime)}
                                 />
                                 { showDateDropdown && 
                                     <DropdownInputDate
-                                        // desiredDate={desiredDate}        
-                                        getDesiredDate={getDesiredDate}
-                                        desiredTime={desiredTime}
-                                        getDesiredTime={getDesiredTime}                                             
+                                        // desiredDate={desiredDate} 
+                                        desiredTime = {desiredTime}       
+                                        getDesiredDate={getDesiredDate}                                        
+                                        getDesiredStartHour={getDesiredStartHour} 
+                                        getDesiredEndHour={getDesiredEndHour}                                            
                                         hideDateOptions={() => setShowDateDropdown(false)}
                                     />}
                             </React.Fragment>

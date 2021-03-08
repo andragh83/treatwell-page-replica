@@ -5,11 +5,11 @@ import styles from './StickyCollapse.module.css';
 import DropdownWrapper from './DropdownWrapper';
 import DropdownTime from './DropdownTime';
 
-const DropdownInputDate = ({ getDesiredDate, desiredTime, getDesiredTime, hideDateOptions }) => {
+const DropdownInputDate = ({ getDesiredDate, desiredTime, getDesiredStartHour, getDesiredEndHour, hideDateOptions }) => {
     
     let today = new Date();
 
-    const [showTime, setShowTime] = useState(false);
+    const [showTimeDropdown, setShowTimeDropdown] = useState(false);
 
     return <DropdownWrapper>
             <div className={styles.dropDownHeader}>
@@ -55,20 +55,20 @@ const DropdownInputDate = ({ getDesiredDate, desiredTime, getDesiredTime, hideDa
             <div className={styles.choose}>                                    
                 <button
                     className={styles.chooseButton}
-                    onClick={getDesiredTime}
+                    onClick={() => {getDesiredStartHour(); getDesiredEndHour()}}
                     value={desiredTime}
                 >
                     Any time
                 </button>
                 <button
                     className={styles.chooseButton}
-                    onClick={() => setShowTime(true)}
+                    onClick={() => setShowTimeDropdown(true)}
                     value={"Choose time"}
                 >
                     Choose Time
                 </button>
                 {
-                    showTime && <DropdownTime onClick={getDesiredTime}/>
+                    showTimeDropdown && <DropdownTime onChangeStartHour={getDesiredStartHour} onChangeEndHour={getDesiredEndHour}/>
                 }
             </div>
             <button
