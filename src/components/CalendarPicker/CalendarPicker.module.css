@@ -1,0 +1,75 @@
+.calendarWrapper {
+    margin: 0 auto;
+    padding: 20px;   
+    background-color: #FFF;
+    max-width: 300px;  
+    position: absolute;
+    left: 350px;
+    margin-top: -180px;  
+    z-index: 2000;
+}
+
+.arrowDiv {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.arrow {    
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+
+
+.monthAndYear {
+    margin: 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.weekDaysDiv, .gridWrapper {
+    margin: 0px;
+    padding: 5px;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.weekDays {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.weekDaysDiv {
+    border-top: 1px solid rgb(235, 235, 235);
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.day {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border: none;
+    margin: 0px;
+    outline: none;
+    background-color: rgb(235, 235, 235);
+    color: #000;
+}
+
+.day:focus {
+    background-color: orangered;
+    color: #FFF;
+    border-radius: 50%;
+}
+
+.arrow:focus {
+    color: orangered;
+}
+
+.active {
+    background-color: #fff;
+}

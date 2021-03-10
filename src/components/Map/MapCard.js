@@ -5,7 +5,6 @@ import styles from './Map.module.css';
 
 
 const MapCard = ({ google }) => {
-    
 
     return <div className={styles.mapWrapper}>
         <Map
@@ -21,7 +20,7 @@ const MapCard = ({ google }) => {
 
             <Marker
                 icon={icon}
-                onClick={console.log('you clicked me!')}
+                // onClick={}
                 position={
                     {lat: 51.503399,
                     lng: -0.119519}
@@ -30,7 +29,7 @@ const MapCard = ({ google }) => {
 
             <Marker
                 icon={icon}
-                onClick={console.log('you clicked me!')}
+                // onClick={}
                 position={
                     {lat: 51.505554,
                     lng: -0.075278}

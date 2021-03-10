@@ -30,7 +30,6 @@ const StickyCollapse = ({
     
     const handleResize = () => {
         setViewportWidth(window.innerWidth);
-        console.log('viewport: ', viewportWidth)
         viewportWidth < 420 && toggleMap();
     }
     
@@ -42,8 +41,6 @@ const StickyCollapse = ({
 
  
    const displayDateAndTime = (date, time) => {
-       console.log('date in fct is: ', date);
-       console.log('time in fct is: ', time);
 
         let displayDate = '';
         if (Date.parse(date)) {
@@ -57,7 +54,6 @@ const StickyCollapse = ({
 
    return <div className={styles.container}>
             <div className={styles.collapsableInputs}>
-
                 <div className={styles.inputsContainer}>
                     {showOneInput ?
                         ( <div className={styles.initialInputContainer}>

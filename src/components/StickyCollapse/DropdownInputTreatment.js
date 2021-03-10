@@ -6,7 +6,6 @@ import DropdownWrapper from './DropdownWrapper';
 import { setTreatment } from '../../actions';
 
 const mapStateToProps = state => {
-    console.log("treatment", state.treatment)
 	return {
         treatment: state.treatment,
 	}

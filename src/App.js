@@ -48,12 +48,6 @@ function App(
     toggleCards }
 ) {
 
-  console.log('desired treatment: ', treatment);
-  console.log('desired location: ', location);
-  console.log('desired date: ', desiredDate);
-  console.log('desired time: ', desiredTime);
-  console.log('hide map: ', hideMap);
-
 
   return (
     <div className="App">
@@ -79,8 +73,8 @@ function App(
           {
             !hideMap && <MapCard />
           }
-        </div>
-        
+        </div>    
+
       </Layout>
     </div>
   );
