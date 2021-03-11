@@ -9,7 +9,7 @@ const MapCard = () => {
 
     const createInfoWindow = (position, map) => {
         const infoWindow = new window.google.maps.InfoWindow({
-            content: '<div id="infoWindow" />',
+            content: '<div>Salon!</div>',
             position: position
         })
         
@@ -27,6 +27,27 @@ const MapCard = () => {
         createInfoWindow(position, map)        
     }
 
+    const createSalonMarkers = (map) => {
+        const request = {
+            location: new window.google.maps.LatLng(51.507359,-0.136439),
+            radius: '500',
+            type: ['beauty-salon']
+        };
+
+    const service = new window.google.maps.places.PlacesService(map);
+    
+    service.nearbySearch(request, callback);
+    }
+    
+    const callback = (results, status) => {
+        if (status == window.google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+            // createMarker(results[i]);
+            console.log('callback result', results[i])
+            }
+        } else {console.log('Callback said: ', status)}
+}
+
     return <div className={styles.mapWrapper}>                
         <Map
             id={'map'}            
@@ -37,25 +58,15 @@ const MapCard = () => {
                     lng: -0.136439
                 },
                 zoom: 14
-            }}
+            }}            
 
-            // onMapLoad={map => {
-            //     const marker = new window.google.maps.Marker({
-            //         position: {lat: 51.503399,  lng: -0.119519},
-            //         map: map,
-            //         title: 'Hello London!'
-            //     });
-            //     marker.addListener('click', e => {
-            //         createInfoWindow(e, map)
-            //     })
+            // onMapLoad={(map) => {
+            //     createMarker({ lat: 51.503399, lng: -0.119519 }, map);
+            //     createMarker({ lat: 51.510357, lng: -0.116773 }, map);
+
             // }}
 
-            onMapLoad={(map) => {
-                createMarker({ lat: 51.503399, lng: -0.119519 }, map);
-                createMarker({ lat: 51.510357, lng: -0.116773 }, map);
-
-            }}
-
+            onMapLoad={createSalonMarkers}
             
         /> 
         </div>
