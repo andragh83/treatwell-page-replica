@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/treatwell-page-replica/static/css/main.b780adf3.chunk.css",
-    "main.js": "/treatwell-page-replica/static/js/main.6c299e58.chunk.js",
-    "main.js.map": "/treatwell-page-replica/static/js/main.6c299e58.chunk.js.map",
+    "main.css": "/treatwell-page-replica/static/css/main.c8ad15d2.chunk.css",
+    "main.js": "/treatwell-page-replica/static/js/main.3dc6c57c.chunk.js",
+    "main.js.map": "/treatwell-page-replica/static/js/main.3dc6c57c.chunk.js.map",
     "runtime-main.js": "/treatwell-page-replica/static/js/runtime-main.7c1e6aaa.js",
     "runtime-main.js.map": "/treatwell-page-replica/static/js/runtime-main.7c1e6aaa.js.map",
-    "static/js/2.fa8853e2.chunk.js": "/treatwell-page-replica/static/js/2.fa8853e2.chunk.js",
-    "static/js/2.fa8853e2.chunk.js.map": "/treatwell-page-replica/static/js/2.fa8853e2.chunk.js.map",
+    "static/js/2.d69a7afc.chunk.js": "/treatwell-page-replica/static/js/2.d69a7afc.chunk.js",
+    "static/js/2.d69a7afc.chunk.js.map": "/treatwell-page-replica/static/js/2.d69a7afc.chunk.js.map",
     "static/js/3.352cb4a5.chunk.js": "/treatwell-page-replica/static/js/3.352cb4a5.chunk.js",
     "static/js/3.352cb4a5.chunk.js.map": "/treatwell-page-replica/static/js/3.352cb4a5.chunk.js.map",
     "index.html": "/treatwell-page-replica/index.html",
-    "static/css/main.b780adf3.chunk.css.map": "/treatwell-page-replica/static/css/main.b780adf3.chunk.css.map",
-    "static/js/2.fa8853e2.chunk.js.LICENSE.txt": "/treatwell-page-replica/static/js/2.fa8853e2.chunk.js.LICENSE.txt"
+    "static/css/main.c8ad15d2.chunk.css.map": "/treatwell-page-replica/static/css/main.c8ad15d2.chunk.css.map",
+    "static/js/2.d69a7afc.chunk.js.LICENSE.txt": "/treatwell-page-replica/static/js/2.d69a7afc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7c1e6aaa.js",
-    "static/js/2.fa8853e2.chunk.js",
-    "static/css/main.b780adf3.chunk.css",
-    "static/js/main.6c299e58.chunk.js"
+    "static/js/2.d69a7afc.chunk.js",
+    "static/css/main.c8ad15d2.chunk.css",
+    "static/js/main.3dc6c57c.chunk.js"
   ]
 }
