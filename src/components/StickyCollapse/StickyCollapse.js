@@ -14,9 +14,10 @@ const StickyCollapse = ({
         getLocation, 
         desiredDate,        
         getDesiredDate, 
-        desiredTime,
+        desiredTime,        
         getDesiredStartHour,
         getDesiredEndHour,
+        getDesiredTime,
         toggleMap,
         toggleCards }) => {
 
@@ -42,14 +43,17 @@ const StickyCollapse = ({
  
    const displayDateAndTime = (date, time) => {
 
-        let displayDate = '';
-        if (Date.parse(date)) {
-            let displayValue = new Date(date);
-            let dd = displayValue.getDate();
-            let mm = displayValue.getMonth()+1;
-            displayDate = dd + '/' + mm;
-        } else {displayDate = date};
-    return displayDate + ' between ' + time.startHour + ' and ' + time.endHour;
+    let displayDate = date;
+    if (Date.parse(date)) {
+        let displayValue = new Date(date);
+        let dd = displayValue.getDate();
+        let mm = displayValue.getMonth()+1;
+        displayDate = dd + '/' + mm;
+    }
+
+    if (time.startHour === '') return displayDate;
+    return displayDate + ' ' + time.startHour + ' - ' + time.endHour;
+    
    }
 
    return <div className={styles.container}>
@@ -124,7 +128,8 @@ const StickyCollapse = ({
                                         desiredTime = {desiredTime}       
                                         getDesiredDate={getDesiredDate}                                        
                                         getDesiredStartHour={getDesiredStartHour} 
-                                        getDesiredEndHour={getDesiredEndHour}                                            
+                                        getDesiredEndHour={getDesiredEndHour} 
+                                        getDesiredTime={getDesiredTime}                                           
                                         hideDateOptions={() => setShowDateDropdown(false)}
                                     />}
                             </React.Fragment>

@@ -14,3 +14,8 @@
       align-items: center;
     }
   }
+
+#infoWindow {
+  width: 100px;
+  margin-bottom: 54px;
+}

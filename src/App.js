@@ -6,7 +6,7 @@ import StickyCollapse from './components/StickyCollapse/StickyCollapse.js';
 import MapCard from './components/Map/MapCard';
 import Card from './components/Card/Card';
 
-import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setHideMap, setShowCards } from './actions';
+import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setDesiredTime, setHideMap, setShowCards } from './actions';
 
 const mapStateToProps = state => {
 	return {
@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch) => {
         getDesiredDate: (event) => dispatch(setDesiredDate(event.target.value)),
         getDesiredStartHour: (event) => dispatch(setDesiredStartHour(event.target.value)),
         getDesiredEndHour: (event) => dispatch(setDesiredEndHour(event.target.value)),
+        getDesiredTime: (event) => dispatch(setDesiredTime(event.target.value)),
         toggleMap: () => dispatch(setHideMap()),
         toggleCards: () => dispatch(setShowCards()),
 	}
@@ -42,6 +43,7 @@ function App(
     desiredTime,
     getDesiredStartHour,
     getDesiredEndHour,
+    getDesiredTime,
     hideMap,
     toggleMap,
     showCards,
@@ -62,6 +64,7 @@ function App(
           desiredTime={desiredTime} 
           getDesiredStartHour={getDesiredStartHour} 
           getDesiredEndHour={getDesiredEndHour}
+          getDesiredTime={getDesiredTime}
           toggleMap={toggleMap}
           toggleCards={toggleCards}
         />

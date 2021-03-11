@@ -4,6 +4,7 @@ import {
     CHANGE_DATE_FIELD,
     CHANGE_START_HOUR_FIELD,
     CHANGE_END_HOUR_FIELD,
+    CHANGE_TIME_FIELD,
     HIDE_MAP_FIELD,
     SHOW_CARDS_FIELD
         } from './constants.js'
@@ -13,8 +14,8 @@ const initialState = {
     location: '',
     desiredDate: 'Any date',
     desiredTime: {
-        startHour: '08:00',
-        endHour: '20:00'
+        startHour: '',
+        endHour: ''
     },
     hideMap: false,
     showCards: true
@@ -42,6 +43,14 @@ export const searchTreatment = (state=initialState, action={}) => {
                     {desiredTime: Object.assign(
                         {}, state.desiredTime, 
                         {endHour: action.payload}
+                    )}
+            )
+        case CHANGE_TIME_FIELD:
+            return Object.assign(
+                {}, state, 
+                    {desiredTime: Object.assign(
+                        {}, state.desiredTime, 
+                        {startHour: action.payload, endHour: action.payload}
                     )}
             )
         case HIDE_MAP_FIELD:

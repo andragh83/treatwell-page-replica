@@ -4,6 +4,7 @@ import {
     CHANGE_DATE_FIELD,
     CHANGE_START_HOUR_FIELD,
     CHANGE_END_HOUR_FIELD,
+    CHANGE_TIME_FIELD,
     HIDE_MAP_FIELD,
     SHOW_CARDS_FIELD
         } from './constants.js'
@@ -30,6 +31,11 @@ export const setDesiredStartHour = (text) => ({
 
 export const setDesiredEndHour = (text) => ({
 	type: CHANGE_END_HOUR_FIELD,
+	payload: text
+})
+
+export const setDesiredTime = (text) => ({
+	type: CHANGE_TIME_FIELD,
 	payload: text
 })
 

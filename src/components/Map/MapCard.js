@@ -1,45 +1,64 @@
 import React from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import Map from './Map';
 import icon from '../../img/logo512.png';
 import styles from './Map.module.css';
+// import InfoWindow from './InfoWindow';
 
 
-const MapCard = ({ google }) => {
+const MapCard = () => {
 
-    return <div className={styles.mapWrapper}>
+    const createInfoWindow = (position, map) => {
+        const infoWindow = new window.google.maps.InfoWindow({
+            content: '<div id="infoWindow" />',
+            position: position
+        })
+        
+        infoWindow.open(map)
+      }
+
+    const createMarker = (position, map) => {
+        new window.google.maps.Marker({
+            position: position,
+            map: map,
+            title: 'Hello London!',
+            icon: icon,
+        });       
+        
+        createInfoWindow(position, map)        
+    }
+
+    return <div className={styles.mapWrapper}>                
         <Map
-            google={google}
+            id={'map'}            
             zoom={14}            
-            initialCenter={
-                {
+            options={{
+                center: {
                     lat: 51.507359,
                     lng: -0.136439
-                }
-            }
-        >
+                },
+                zoom: 14
+            }}
 
-            <Marker
-                icon={icon}
-                // onClick={}
-                position={
-                    {lat: 51.503399,
-                    lng: -0.119519}
-                }
-            />
+            // onMapLoad={map => {
+            //     const marker = new window.google.maps.Marker({
+            //         position: {lat: 51.503399,  lng: -0.119519},
+            //         map: map,
+            //         title: 'Hello London!'
+            //     });
+            //     marker.addListener('click', e => {
+            //         createInfoWindow(e, map)
+            //     })
+            // }}
 
-            <Marker
-                icon={icon}
-                // onClick={}
-                position={
-                    {lat: 51.505554,
-                    lng: -0.075278}
-                }
-            />
+            onMapLoad={(map) => {
+                createMarker({ lat: 51.503399, lng: -0.119519 }, map);
+                createMarker({ lat: 51.510357, lng: -0.116773 }, map);
+
+            }}
+
             
-        </Map>
+        /> 
         </div>
 }
 
-export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_GOOGLE_API_KEY
-})(MapCard);
+export default MapCard;

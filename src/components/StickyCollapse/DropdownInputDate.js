@@ -6,7 +6,7 @@ import DropdownWrapper from './DropdownWrapper';
 import CalendarPicker from '../CalendarPicker/CalendarPicker';
 import DropdownTime from './DropdownTime';
 
-const DropdownInputDate = ({ getDesiredDate, desiredTime, getDesiredStartHour, getDesiredEndHour, hideDateOptions }) => {
+const DropdownInputDate = ({ getDesiredDate, getDesiredTime, getDesiredStartHour, getDesiredEndHour, hideDateOptions }) => {
     
     let today = new Date();
 
@@ -68,8 +68,8 @@ const DropdownInputDate = ({ getDesiredDate, desiredTime, getDesiredStartHour, g
             <div className={styles.choose}>                                    
                 <button
                     className={styles.chooseButton}
-                    // onClick={() => {getDesiredStartHour(); getDesiredEndHour();}}
-                    value={"Any time"}
+                    onClick={getDesiredTime}
+                    value={""}
                 >
                     Any time
                 </button>
