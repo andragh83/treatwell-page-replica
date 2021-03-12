@@ -169,6 +169,11 @@
 }
 
 @media screen and (max-width: 420px) {
+
+    .container {
+        width: 100vw;
+    }
+
     .search {
         max-width: 80vw;
     }

@@ -17,6 +17,12 @@
     }
   }
 
+  @media screen and (max-width: 420px) {
+    .Content {
+      max-width: 100vw;
+    }
+  }
+
 #infoWindow {
   width: 100px;
   margin-bottom: 54px;
