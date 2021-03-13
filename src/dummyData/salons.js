@@ -1,6 +1,7 @@
 const salons = [
     {
         name: 'Kensington salon',
+        image: "https://cdn1.treatwell.net/images/view/v2.i1399201.w1080.h720.x9578B420/",
         stars: 4.5,
         noReviews: 30,
         location: 'South West London',
@@ -41,6 +42,7 @@ const salons = [
     },
     {
         name: 'Bayswater salon',
+        image: "https://cdn1.treatwell.net/images/view/v2.i2419545.w1080.h720.xB39327CA/",
         stars: 3.5,
         noReviews: 20,
         location: 'South West London',

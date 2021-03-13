@@ -9,7 +9,7 @@ const Card = ({ salon }) => {
 
      return <div className={styles.cardContainer}>
                 <div className={styles.headerSection}>
-                    <img src="https://cdn1.treatwell.net/images/view/v2.i1399201.w1080.h720.x9578B420/" alt=''/>
+                    <img src={salon.image} alt=''/>
                     <div className={styles.headerDetails}>
                         <h3>{salon.name}</h3>                
                         <p><span className={styles.stars}>{salon.stars} stars </span><span>{salon.noReviews}</span> reviews</p>
