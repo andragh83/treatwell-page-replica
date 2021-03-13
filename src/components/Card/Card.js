@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import styles from './Card.module.css';
 
-const DropdownInputLocation = () => {
+const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+const Card = ({ salon }) => {
 
     const [showDetails, setShowDetails] = useState(false)
 
@@ -9,46 +11,47 @@ const DropdownInputLocation = () => {
                 <div className={styles.headerSection}>
                     <img src="https://cdn1.treatwell.net/images/view/v2.i1399201.w1080.h720.x9578B420/" alt=''/>
                     <div className={styles.headerDetails}>
-                        <h3>Salon name</h3>                
-                        <p><span className={styles.stars}>Stars </span><span>No. of reviews</span></p>
-                        <p>Locations</p>
+                        <h3>{salon.name}</h3>                
+                        <p><span className={styles.stars}>{salon.stars} stars </span><span>{salon.noReviews}</span> reviews</p>
+                        <p>{salon.location}</p>
                     </div>
                 </div>
                 <div className={styles.cardContent}>
-                    <div className={styles.treatments}>
-                        <div>
-                            <h4>Treatment type</h4>
-                            <p>Treatment duration</p>
-                        </div>
-                        <div className={styles.price}>Price</div>
-                    </div>
-                    <div className={styles.treatments}>
-                        <div>
-                            <h4>Treatment type</h4>
-                            <p>Treatment duration</p>
-                        </div>
-                        <div className={styles.price}>Price</div>
-                    </div>
-                    <div className={styles.treatments}>
-                        <div>
-                            <h4>Treatment type</h4>
-                            <p>Treatment duration</p>
-                        </div>
-                        <div className={styles.price}>Price</div>
-                    </div>
+                    {
+                        salon.treatmentsOffered.map((treatment, index) => (
+                            <div className={styles.treatments} key={index}>
+                                <div>
+                                    <h4>{treatment.name}</h4>
+                                    <p>{treatment.duration}</p>
+                                </div>
+                                <div className={styles.price}>{treatment.price}</div>
+                            </div>
+                        ))
+                    }    
                 </div>     
                 <button className={styles.quickViewButton} onClick={() => setShowDetails(!showDetails)}>Quick View venue details</button>
                 {showDetails && 
-                <div>
-                    <div className={styles.venueDetailsContainer}>
+                <div className={styles.venueDetailsContainer}>
+                    <div>
                         <ul className={styles.schedule}>
-                            <li></li>
-                            <li></li>
+                        { 
+                            salon.schedule.map((day, index) => (     
+                                <div key={index} className={styles.scheduleDay}>
+                                    <li>{weekdays[index]}</li>
+                                    <div>{day}</div> 
+                                </div>                                                                                                                        
+                            ))
+                        }
                         </ul>
                     </div>
-                    <button className={styles.goToVenueButton} onClick={() => setShowDetails(!showDetails)}>Go to venue</button>
+                    <div className={styles.description}>
+                        {salon.description}
+                    </div>
+                    <div className={styles.goToVenueButtonWrapper}>
+                        <button className={styles.goToVenueButton} onClick={() => setShowDetails(!showDetails)}>Go to venue</button>
+                    </div>
                 </div>}
             </div>
 }
 
-export default DropdownInputLocation;
+export default Card;

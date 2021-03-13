@@ -1,13 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styles from './StickyCollapse.module.css';
 import InputField from './InputField';
 import DropdownInputTreatment from './DropdownInputTreatment';
 import DropdownInputDate from './DropdownInputDate';
 import DropdownInputLocation from './DropdownInputLocation';
+import PopularTreatments from './PopularTreatments';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimes, faMapMarkerAlt, faCalendarAlt, faMapMarkedAlt, faList } from '@fortawesome/free-solid-svg-icons';
 
-const StickyCollapse = ({ 
+import treatmentTypes from '../../dummyData/treatments';
+import locations from '../../dummyData/locations';
+
+const StickyCollapse = ({         
         treatment, 
         getTreatment, 
         location, 
@@ -21,23 +25,46 @@ const StickyCollapse = ({
         toggleMap,
         toggleCards }) => {
 
-   const [showOneInput, setShowOneInput] = useState(true);
-   const [listIcon , toggleIListIcon] = useState(true);
-   const [showInputTreatment, setShowInputTreatment] = useState(false)
-   const [showlocationDropdown, setShowLocationDropdown] = useState(false);
-   const [showDateDropdown, setShowDateDropdown] = useState(false);
-   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
+        const [collapsed, setCollapsed] = useState(true);
+        const [listIcon , toggleIListIcon] = useState(true);
+        const [showInputTreatment, setShowInputTreatment] = useState(false)
+        const [showlocationDropdown, setShowLocationDropdown] = useState(false);
+        const [showDateDropdown, setShowDateDropdown] = useState(false);
     
-    const handleResize = () => {
-        setViewportWidth(window.innerWidth);
-        viewportWidth < 420 && toggleMap();
+        //Hook
+        const useWindowSize = () => {
+            const isClient = typeof window === 'object'; //Object represents browser window
+            const lastWidth = useRef();
+        
+            function getSize() {
+            return {
+                width: isClient ? window.innerWidth : undefined
+            }
+            }
+        
+            const [windowSize, setWindowSize] = useState(getSize)
+        
+            useEffect(() => {
+            if (!isClient) { return false } //Exit if not user/browser
+        
+            function handleResize() {
+                if (window?.innerWidth !== lastWidth.current) {
+                const width = getSize();
+                lastWidth.current = width;
+                setWindowSize(width)
+                }
+            }
+            window.addEventListener('resize', handleResize) // <-- I am only interested in window.innerWidth !
+            return () => window.removeEventListener('resize', handleResize)
+            }, []) 
+        
+            return windowSize
     }
-    
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-        handleResize();
-        return () => window.removeEventListener("resize", handleResize);
+
+    const viewportWidth = useWindowSize();
+
+    useEffect(() => {        
+        viewportWidth.width <= 768 && toggleMap();
     }, [])
 
  
@@ -55,22 +82,22 @@ const StickyCollapse = ({
     return displayDate + ' ' + time.startHour + ' - ' + time.endHour;
     
    }
-
+  
    return <div className={styles.container}>
             <div className={styles.collapsableInputs}>
                 <div className={styles.inputsContainer}>
-                    {showOneInput ?
+                    {collapsed ?
                         ( <div className={styles.initialInputContainer}>
                             <div className={styles.initialInputField}>
                                 <InputField 
                                     icon={faSearch}                            
-                                    onClick={() => {setShowOneInput(!showOneInput); setShowOneInput(false)}}
+                                    onClick={() => {setCollapsed(!collapsed); setCollapsed(false)}}
                                     inputMode={"none"}
                                     placeholder={"Search for treatments"}
                                     value={treatment}                            
                                 />
                             </div>
-                         { viewportWidth < 420 
+                         { viewportWidth.width <= 768
                               && <div>
                                     <button className={styles.initialInputButton} onClick={() => {toggleCards(); toggleIListIcon(!listIcon); return !toggleMap()}}>
                                         { listIcon ? 
@@ -93,8 +120,8 @@ const StickyCollapse = ({
                                 />                                                        
                                 {showInputTreatment && 
                                     <DropdownInputTreatment
-                                        treatment={treatment}
-                                        getTreatment={getTreatment}
+                                        treatments={treatmentTypes}
+                                        onChange={getTreatment}
                                         onClick={() => {setShowInputTreatment(false)}}
                                     />
                                     }
@@ -109,8 +136,9 @@ const StickyCollapse = ({
                                     />                            
                                 {showlocationDropdown && 
                                     <DropdownInputLocation
-                                        location={location}
-                                        getLocation={getLocation} 
+                                        locations={locations}
+                                        onChange={getLocation}
+                                        onClick={() => {setShowLocationDropdown(false)}}
                                     />}
                             </React.Fragment>
 
@@ -145,8 +173,8 @@ const StickyCollapse = ({
                     Hide Map
                     </button>
                 </div>
-
             </div>
+            <PopularTreatments treatments={treatmentTypes} onClick={getTreatment}/>
         </div>
 }
 

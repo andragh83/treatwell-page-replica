@@ -168,11 +168,50 @@
     color: #fff;
 }
 
-@media screen and (max-width: 420px) {
+.popularTreatmentsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    flex-basis:calc(50% - 10px);
+}
 
-    .container {
-        width: 100vw;
-    }
+.popularTreatmentsWrapper {
+    max-width: 75vw;
+    margin: 0px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.popularTreatmentsHeadline {
+    height: 20px;    
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: .2px;
+    color: #fff;
+    margin-left: 20px;
+}
+
+.popularTreatmentsButton {
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    color: inherit;
+    border-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%), 0 0 1px 0 rgb(0 0 0 / 15%);
+}
+
+.popularTreatmentsName {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+@media screen and (max-width: 768px) {
 
     .search {
         max-width: 80vw;
@@ -197,4 +236,10 @@
         display: none;
     }
 
+}
+
+@media screen and (max-width: 420px) {
+    .popularTreatmentsWrapper {
+        display: none;
+    }
 }

@@ -3,15 +3,17 @@
     height: 100%;
 }
 
-.mapWrapper {
-    position: relative;
+.mapWrapper {   
+    position: sticky;
+    bottom: 0;        
+    align-self: flex-end;
     margin-left: 15px;
-    width: 35vw; 
-    height: 70vh;
+    width: 32vw; 
+    height: 75vh;
     z-index: -1;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 768px) {
     .mapWrapper {
         margin: 0px auto;
         width: 100vw; 

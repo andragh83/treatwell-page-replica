@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import StickyCollapse from './components/StickyCollapse/StickyCollapse.js';
 import MapCard from './components/Map/MapCard';
 import Card from './components/Card/Card';
+import salons from './dummyData/salons';
 
 import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setDesiredTime, setHideMap, setShowCards } from './actions';
 
@@ -21,7 +22,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {        
-        getTreatment: (event) => dispatch(setTreatment(event.target.value)),
+        getTreatment: (event) => dispatch(setTreatment(event.currentTarget.value)),
         getLocation: (event) => dispatch(setLocation(event.target.value)),
         getDesiredDate: (event) => dispatch(setDesiredDate(event.target.value)),
         getDesiredStartHour: (event) => dispatch(setDesiredStartHour(event.target.value)),
@@ -50,11 +51,19 @@ function App(
     toggleCards }
 ) {
 
+  // debugger;
+
+
+  const filteredSalons = salons.filter(
+    salon => salon.treatmentsOffered.some(
+      treatments => treatments.name.includes(treatment) && salon.location.includes(location)
+      )
+    )
 
   return (
     <div className="App">
       <Layout>
-        <StickyCollapse 
+        <StickyCollapse           
           treatment={treatment} 
           getTreatment={getTreatment}
           location={location} 
@@ -68,11 +77,13 @@ function App(
           toggleMap={toggleMap}
           toggleCards={toggleCards}
         />
-        <div className="Content">
-        
+        <div className="Results">{filteredSalons.length} salons offer {treatment} in {location}.</div>
+        <div className="Content">          
+          <div className="Cards">
           {
-            showCards && <Card />
+            showCards && filteredSalons.map((salon, index) => <Card salon={salon} key={index} />)
           }
+          </div>
           {
             !hideMap && <MapCard />
           }
