@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styles from './Card.module.css';
 
+import Carousel from '../Carousel/Carousel';
+
 const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 const Card = ({ salon }) => {
@@ -9,7 +11,7 @@ const Card = ({ salon }) => {
 
      return <div className={styles.cardContainer}>
                 <div className={styles.headerSection}>
-                    <img src={salon.image} alt=''/>
+                    <Carousel images={salon.images} alt=''/>
                     <div className={styles.headerDetails}>
                         <h3>{salon.name}</h3>                
                         <p><span className={styles.stars}>{salon.stars} stars </span><span>{salon.noReviews}</span> reviews</p>
