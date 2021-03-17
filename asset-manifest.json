@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/treatwell-page-replica/static/css/main.33fbb9e4.chunk.css",
+    "main.css": "/treatwell-page-replica/static/css/main.68a995b7.chunk.css",
     "main.js": "/treatwell-page-replica/static/js/main.f8269b91.chunk.js",
     "main.js.map": "/treatwell-page-replica/static/js/main.f8269b91.chunk.js.map",
     "runtime-main.js": "/treatwell-page-replica/static/js/runtime-main.3e76c667.js",
@@ -10,13 +10,13 @@
     "static/js/3.88b6dba8.chunk.js": "/treatwell-page-replica/static/js/3.88b6dba8.chunk.js",
     "static/js/3.88b6dba8.chunk.js.map": "/treatwell-page-replica/static/js/3.88b6dba8.chunk.js.map",
     "index.html": "/treatwell-page-replica/index.html",
-    "static/css/main.33fbb9e4.chunk.css.map": "/treatwell-page-replica/static/css/main.33fbb9e4.chunk.css.map",
+    "static/css/main.68a995b7.chunk.css.map": "/treatwell-page-replica/static/css/main.68a995b7.chunk.css.map",
     "static/js/2.309a8d80.chunk.js.LICENSE.txt": "/treatwell-page-replica/static/js/2.309a8d80.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3e76c667.js",
     "static/js/2.309a8d80.chunk.js",
-    "static/css/main.33fbb9e4.chunk.css",
+    "static/css/main.68a995b7.chunk.css",
     "static/js/main.f8269b91.chunk.js"
   ]
 }
