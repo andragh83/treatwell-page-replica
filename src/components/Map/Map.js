@@ -9,7 +9,7 @@ const Map = ({ options, onMapLoad }) => {
     const createMap = () => {
         const map = new window.google.maps.Map(mapRef.current, options);
         onMapLoad(map);
-      }
+      }  
 
     useEffect(() => {
         if (!window.google) {

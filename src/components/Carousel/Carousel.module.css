@@ -27,7 +27,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    transition: .5s;
+    transition: 1s;
 }
 
 .imgItem {
@@ -116,8 +116,20 @@
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 420px)  
+    {
     .carouselWrapper {
-        height: 165px;
+        max-width: 400px;
+        height: 45vw;
     }
 }
+
+@media only screen 
+    and (device-width: 390px) 
+    and (device-height: 844px) 
+    and (-webkit-device-pixel-ratio: 3) { 
+        .carouselWrapper {
+            max-width: 400px;
+            height: 55vw;
+        }
+    }

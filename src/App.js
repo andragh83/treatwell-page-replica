@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Layout from './components/Layout/Layout';
@@ -7,7 +7,7 @@ import MapCard from './components/Map/MapCard';
 import Card from './components/Card/Card';
 import salons from './dummyData/salons';
 
-import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setDesiredTime, setHideMap, setShowCards } from './actions';
+import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setDesiredTime, setHideMap, setShowCards, setFoundSalons } from './actions';
 
 const mapStateToProps = state => {
 	return {
@@ -16,7 +16,8 @@ const mapStateToProps = state => {
         desiredDate: state.desiredDate,
         desiredTime: state.desiredTime,
         hideMap: state.hideMap,
-        showCards: state.showCards
+        showCards: state.showCards,
+        foundSalons: state.foundSalons
 	}
 }
 
@@ -30,11 +31,13 @@ const mapDispatchToProps = (dispatch) => {
         getDesiredTime: (event) => dispatch(setDesiredTime(event.target.value)),
         toggleMap: () => dispatch(setHideMap()),
         toggleCards: () => dispatch(setShowCards()),
+        getSalons: (event) => dispatch(setFoundSalons(event.target.value))
 	}
 }
 
-function App(
-  { 
+function App(props) {
+
+  const { 
     treatment, 
     getTreatment, 
     location, 
@@ -48,11 +51,11 @@ function App(
     hideMap,
     toggleMap,
     showCards,
-    toggleCards }
-) {
+    toggleCards,
+    foundSalons,
+    getSalons } = props;
 
   // debugger;
-
 
   const filteredSalons = salons.filter(
     salon => salon.treatmentsOffered.some(
@@ -85,7 +88,7 @@ function App(
           }
           </div>
           {
-            !hideMap && <MapCard />
+            !hideMap && <MapCard getSalons={getSalons}/>
           }
         </div>    
 

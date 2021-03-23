@@ -10,8 +10,6 @@ import { searchTreatment } from './reducers';
 
 const store = createStore(searchTreatment);
 
-console.log('searchTreatment', searchTreatment);
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

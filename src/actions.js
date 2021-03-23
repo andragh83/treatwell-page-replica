@@ -6,7 +6,8 @@ import {
     CHANGE_END_HOUR_FIELD,
     CHANGE_TIME_FIELD,
     HIDE_MAP_FIELD,
-    SHOW_CARDS_FIELD
+    SHOW_CARDS_FIELD,
+    FOUND_SALONS_FIELD
         } from './constants.js'
 
 export const setTreatment = (text) => ({
@@ -47,5 +48,10 @@ export const setHideMap = (text) => ({
 export const setShowCards = (text) => ({
 	type: SHOW_CARDS_FIELD,
 	payload: text
+})
+
+export const setFoundSalons = (text) => ({
+    type: FOUND_SALONS_FIELD,
+    payload: text
 })
 
