@@ -50,8 +50,9 @@ export const setShowCards = (text) => ({
 	payload: text
 })
 
-export const setFoundSalons = (text) => ({
-    type: FOUND_SALONS_FIELD,
-    payload: text
+export const setFoundSalons = (results) => ({
+        type: FOUND_SALONS_FIELD,
+        payload: results
 })
+
 

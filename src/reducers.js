@@ -7,7 +7,7 @@ import {
     CHANGE_TIME_FIELD,
     HIDE_MAP_FIELD,
     SHOW_CARDS_FIELD,
-    FOUND_SALONS_FIELD
+    FOUND_SALONS_FIELD,
         } from './constants.js'
 
 const initialState = {
@@ -19,8 +19,8 @@ const initialState = {
         endHour: ''
     },
     hideMap: false,
-    showCards: true,
-    foundSalons: []
+    showCards: true,  
+    foundSalons: []  
 }
 
 export const searchTreatment = (state=initialState, action={}) => {
@@ -59,8 +59,8 @@ export const searchTreatment = (state=initialState, action={}) => {
             return Object.assign({}, state, {hideMap: !state.hideMap})
         case SHOW_CARDS_FIELD:
             return Object.assign({}, state, {showCards: !state.showCards})
-        case FOUND_SALONS_FIELD:         
-            return Object.assign({}, state, {foundSalons: [...state.foundSalons, action.payload]})
+        case FOUND_SALONS_FIELD:
+            return Object.assign({}, state, {foundSalons: action.payload})
 		default:
 			return state;
 	}

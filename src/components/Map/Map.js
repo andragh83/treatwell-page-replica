@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from './Map.module.css';
 
 
-const Map = ({ options, onMapLoad }) => {
+const Map = ({ options, onMapLoad, children }) => {
 
     const mapRef = useRef();
 
@@ -21,12 +21,12 @@ const Map = ({ options, onMapLoad }) => {
             mapScriptTag.addEventListener('load', () => {
               createMap()
             })
-          } else {
-            createMap()
-          }
+          } 
     }, [])
 
-    return <div ref = {mapRef} className={styles.mapWrapper} /> 
+    return <div ref = {mapRef} className={styles.mapWrapper} >
+            {children}
+          </div> 
 
 }             
 

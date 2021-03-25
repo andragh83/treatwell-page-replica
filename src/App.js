@@ -7,17 +7,17 @@ import MapCard from './components/Map/MapCard';
 import Card from './components/Card/Card';
 import salons from './dummyData/salons';
 
-import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setDesiredTime, setHideMap, setShowCards, setFoundSalons } from './actions';
+import { setTreatment, setLocation, setDesiredDate, setDesiredStartHour, setDesiredEndHour, setDesiredTime, setHideMap, setShowCards, setFoundSalons} from './actions';
 
 const mapStateToProps = state => {
 	return {
-        treatment: state.treatment,
-        location: state.location,
-        desiredDate: state.desiredDate,
-        desiredTime: state.desiredTime,
-        hideMap: state.hideMap,
-        showCards: state.showCards,
-        foundSalons: state.foundSalons
+        treatment: state.searchTreatment.treatment,
+        location: state.searchTreatment.location,
+        desiredDate: state.searchTreatment.desiredDate,
+        desiredTime: state.searchTreatment.desiredTime,
+        hideMap: state.searchTreatment.hideMap,
+        showCards: state.searchTreatment.showCards,        
+        foundSalons: state.searchTreatment.foundSalons        
 	}
 }
 
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
         getDesiredTime: (event) => dispatch(setDesiredTime(event.target.value)),
         toggleMap: () => dispatch(setHideMap()),
         toggleCards: () => dispatch(setShowCards()),
-        getSalons: (event) => dispatch(setFoundSalons(event.target.value))
+        getSalons: (results) => dispatch(setFoundSalons(results))
 	}
 }
 
@@ -52,16 +52,20 @@ function App(props) {
     toggleMap,
     showCards,
     toggleCards,
-    foundSalons,
-    getSalons } = props;
+    getSalons,
+    foundSalons     
+  } = props;
 
   // debugger;
 
+  const salonNames = foundSalons.map(salon => salon.name)
+  console.log('saloane: ', salonNames);
+
   const filteredSalons = salons.filter(
     salon => salon.treatmentsOffered.some(
-      treatments => treatments.name.includes(treatment) && salon.location.includes(location)
+      treatments => treatments.name.includes(treatment) && salon.location.includes(location) && salonNames.includes(salon.name)
       )
-    )
+    )  
 
   return (
     <div className="App">
@@ -88,7 +92,7 @@ function App(props) {
           }
           </div>
           {
-            !hideMap && <MapCard getSalons={getSalons}/>
+            !hideMap && <MapCard getSalons={getSalons} salons={salons}/>
           }
         </div>    
 
