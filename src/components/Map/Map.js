@@ -21,7 +21,9 @@ const Map = ({ options, onMapLoad, children }) => {
             mapScriptTag.addEventListener('load', () => {
               createMap()
             })
-          } 
+          } else {
+            createMap()
+          }
     }, [])
 
     return <div ref = {mapRef} className={styles.mapWrapper} >
