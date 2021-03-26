@@ -8,10 +8,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { searchTreatment, /*requestSalons*/ } from './reducers';
+import { searchTreatment, displayOnMap } from './reducers';
 
 const logger = createLogger();
-const rootReducer = combineReducers({searchTreatment, /*requestSalons*/})
+const rootReducer = combineReducers({searchTreatment, displayOnMap})
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(

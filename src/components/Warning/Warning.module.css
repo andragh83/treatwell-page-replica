@@ -1,0 +1,83 @@
+.container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .55);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.content {
+    width: 50vw;
+    /* height: 50vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .85); 
+    /* backdrop-filter: blur(25px); */
+    border-radius: 4px;
+    animation: fadeIn 1s both;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+.content button {
+    background-color: transparent;
+    margin-left: 95%; 
+    border: none;
+    outline: none;
+    margin-top: 10px;
+}
+
+.closeWarning {
+    cursor: pointer;
+    z-index: 1000;
+    border: none;
+    padding: 20px;        
+    font-size: 1.5rem;
+    outline: none;       
+    margin-top: 70px;
+    color: #000;
+    opacity: .5;
+}
+
+.warningTextTitle {
+    font-size: 2rem;
+}
+
+.warningTextDescription {
+    padding: 20px;
+    padding-top: 0px;
+    font-size: 1.2rem;    
+    margin-left: 20px    
+}
+
+@media screen and (max-width: 420px) {
+
+    .content {
+        width: 90vw;
+        height: 50vh;        
+        overflow: scroll;
+    }
+
+    .content button {
+        margin-left: 90%;
+    }
+
+    .warningTextTitle {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .warningTextDescription {
+        padding-left: 5px;
+        font-size: 1rem;
+    }
+}

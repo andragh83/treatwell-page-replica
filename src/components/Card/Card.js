@@ -5,11 +5,11 @@ import Carousel from '../Carousel/Carousel';
 
 const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
-const Card = ({ salon }) => {
+const Card = ({ salon, toggleMapTooltip }) => {
 
     const [showDetails, setShowDetails] = useState(false)
 
-     return <div className={styles.cardContainer}>
+     return <div className={styles.cardContainer} onMouseEnter={toggleMapTooltip} onMouseLeave={toggleMapTooltip}>
                 <div className={styles.headerSection}>
                     <Carousel images={salon.images} alt=''/>
                     <div className={styles.headerDetails}>

@@ -10,7 +10,7 @@ import {
     FOUND_SALONS_FIELD,
         } from './constants.js'
 
-const initialState = {
+const initialSearchTreatmentState = {
     treatment: "Ladies' hair cuts",
     location: 'London',
     desiredDate: 'Any date',
@@ -19,11 +19,10 @@ const initialState = {
         endHour: ''
     },
     hideMap: false,
-    showCards: true,  
-    foundSalons: []  
+    showCards: true 
 }
 
-export const searchTreatment = (state=initialState, action={}) => {
+export const searchTreatment = (state=initialSearchTreatmentState, action={}) => {
 	switch(action.type) {
 		case CHANGE_TREATMENT_FIELD:
             return Object.assign({}, state, {treatment: action.payload})
@@ -59,6 +58,19 @@ export const searchTreatment = (state=initialState, action={}) => {
             return Object.assign({}, state, {hideMap: !state.hideMap})
         case SHOW_CARDS_FIELD:
             return Object.assign({}, state, {showCards: !state.showCards})
+        case FOUND_SALONS_FIELD:
+            return Object.assign({}, state, {foundSalons: action.payload})
+		default:
+			return state;
+	}
+}
+
+const initialDisplayOnMapState = {
+    foundSalons: []
+}
+
+export const displayOnMap = (state=initialDisplayOnMapState, action={}) => {
+	switch(action.type) {
         case FOUND_SALONS_FIELD:
             return Object.assign({}, state, {foundSalons: action.payload})
 		default:

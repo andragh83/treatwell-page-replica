@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Map.module.css';
+import { Loader } from "@googlemaps/js-api-loader"
 
-
-const Map = ({ options, onMapLoad, children }) => {
+// loading map (manually)
+const Map = ({ options, id, onMapLoad, changeFactors}) => {
 
     const mapRef = useRef();
 
@@ -24,12 +25,36 @@ const Map = ({ options, onMapLoad, children }) => {
           } else {
             createMap()
           }
-    }, [])
+    }, changeFactors)
 
-    return <div ref = {mapRef} className={styles.mapWrapper} >
-            {children}
-          </div> 
+    return <div id={id} ref = {mapRef} className={styles.mapWrapper} />
 
 }             
 
 export default Map;
+
+//loading map (package)
+
+// const Map = ({ options, id, onMapLoad, salons, coloredTooltip}) => {
+
+//     const mapRef = useRef();
+
+//     const loader = new Loader({
+//       apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+//       version: "weekly", 
+//       libraries: ["places"]   
+//     });
+
+//     useEffect(() => {
+//       loader.load().then(() => {
+//         const map = new window.google.maps.Map(mapRef.current, options);
+//         onMapLoad(map)
+//       });
+//     }, [salons.length, coloredTooltip])
+
+//     return <div id={id} ref = {mapRef} className={styles.mapWrapper} />
+
+// }             
+
+// export default Map;
+
