@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/treatwell-page-replica/static/css/main.edeb08f0.chunk.css",
-    "main.js": "/treatwell-page-replica/static/js/main.bb0413d2.chunk.js",
-    "main.js.map": "/treatwell-page-replica/static/js/main.bb0413d2.chunk.js.map",
+    "main.js": "/treatwell-page-replica/static/js/main.6f3525b5.chunk.js",
+    "main.js.map": "/treatwell-page-replica/static/js/main.6f3525b5.chunk.js.map",
     "runtime-main.js": "/treatwell-page-replica/static/js/runtime-main.e79dbb00.js",
     "runtime-main.js.map": "/treatwell-page-replica/static/js/runtime-main.e79dbb00.js.map",
     "static/js/2.2d948f16.chunk.js": "/treatwell-page-replica/static/js/2.2d948f16.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e79dbb00.js",
     "static/js/2.2d948f16.chunk.js",
     "static/css/main.edeb08f0.chunk.css",
-    "static/js/main.bb0413d2.chunk.js"
+    "static/js/main.6f3525b5.chunk.js"
   ]
 }
