@@ -84,6 +84,7 @@ const CalendarPicker = ({ onClick }) => {
                 firstCell = {calendarInput.firstCalendarCell}
                 noOfDays={calendarInput.noOfDays}  
                 selectedMonth={calendarInput.month} 
+                year={calendarInput.year}
                 onClick={onClick}/>
         </div>
         

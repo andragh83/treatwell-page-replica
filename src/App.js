@@ -62,11 +62,25 @@ function App(props) {
   const salonNames = foundSalons.map(salon => salon.name)
   console.log('saloane: ', Object.keys(salonNames));
 
-  const filteredSalons = salons.filter(
-    salon => salon.treatmentsOffered.some(
-      treatments => treatments.name.includes(treatment) && salon.location.includes(location) && salonNames.includes(salon.name)
+  var filteredSalons;
+
+  if (salonNames.length>0) {
+    filteredSalons = salons.filter(
+      salon => salon.treatmentsOffered.some(
+        treatments => treatments.name.includes(treatment) && salon.location.includes(location) && salonNames.includes(salon.name)
+        )
       )
-    )
+  } else {
+    filteredSalons = salons.filter(
+      salon => salon.treatmentsOffered.some(
+        treatments => treatments.name.includes(treatment) && salon.location.includes(location)
+        )
+      )
+  }
+
+  
+
+
   let filteredSalonslength  = filteredSalons.length
 
   const [showWarning, toggleWarning] = useState(true);

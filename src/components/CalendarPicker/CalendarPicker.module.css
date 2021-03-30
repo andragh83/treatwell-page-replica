@@ -49,18 +49,19 @@
     border-bottom: 1px solid rgb(235, 235, 235);
 }
 
-.day {
+.day, .active {
     height: 40px;
     width: 40px;
     text-align: center;
     border: none;
     margin: 0px;
     outline: none;
-    background-color: rgb(235, 235, 235);
+    background-color: #FFF;
     color: #000;
 }
 
-.day:focus {
+
+.active:focus {
     background-color: orangered;
     color: #FFF;
     border-radius: 50%;
@@ -70,6 +71,10 @@
     color: orangered;
 }
 
-.active {
-    background-color: #fff;
+.notActive {
+    background-color: rgb(235, 235, 235);
+}
+
+.pastDates {
+    color: grey
 }
