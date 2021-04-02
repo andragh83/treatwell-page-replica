@@ -25,7 +25,7 @@ const Warning = ({closeWarning}) => (
                     <li>The salon cards have a carousel of images.</li>
                     <li>The website is responsive to a wide range of devices.</li>
                 </ul> 
-                <p>The map component doesn't load in this demo because I haven't yet set-up the backend in order to secure the API key. If you have your own Google Maps API key, you can download the repo, create an .env file in the root of the project that holds a sigle variable called REACT_APP_GOOGLE_API_KEY="your API key goes here" and run it locally.</p>                               
+                <p>The map component doesn't load in this demo because I haven't yet found the optimal way to secure the API key. If you have your own Google Maps API key, you can download the repo, create an .env file in the root of the project that holds a sigle variable called REACT_APP_GOOGLE_API_KEY="your API key goes here" and run it locally.</p>                               
             </div>
         </div>
     </div>
